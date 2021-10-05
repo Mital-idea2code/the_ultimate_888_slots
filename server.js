@@ -15,3 +15,8 @@ app.use(function (req, res, next) {
 app.use("/testapi", (req, res) => {
   res.send("I am call");
 });
+
+var port = process.env.PORT || 8000;
+http.listen(port, function () {
+  console.log(`listening on *:8000`);
+});
