@@ -16,6 +16,15 @@ app.use("/testapi", (req, res) => {
   res.send("I am call");
 });
 
+const io = require("socket.io")(http, {
+  allowEIO3: true,
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+
 var port = process.env.PORT || 8000;
 http.listen(port, function () {
   console.log(`listening on *:8000`);
