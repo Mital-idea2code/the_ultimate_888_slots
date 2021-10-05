@@ -24,6 +24,13 @@ const io = require("socket.io")(http, {
   },
 });
 
+io.on("connection", function (socket) {
+  console.log("connected");
+  socket.on("addEditAds", function (data) {
+    console.log("data", data);
+    io.sockets.emit("getAddEditAds", data);
+  });
+});
 
 var port = process.env.PORT || 8000;
 http.listen(port, function () {
