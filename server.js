@@ -30,6 +30,12 @@ io.on("connection", function (socket) {
     console.log("data", data);
     io.sockets.emit("getAddEditAds", data);
   });
+  
+  socket.on("activedeactiveAds", function (data) {
+    console.log("data", data);
+    io.sockets.emit("getActiveDeactiveAds", data);
+  });
+  
 });
 
 var port = process.env.PORT || 8000;
