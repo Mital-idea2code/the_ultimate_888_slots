@@ -36,6 +36,11 @@ io.on("connection", function (socket) {
     io.sockets.emit("getActiveDeactiveAds", data);
   });
   
+  socket.on("deleteAds", function (data) {
+    console.log("data", data);
+    io.sockets.emit("getdeleteAds", data);
+  });
+  
 });
 
 var port = process.env.PORT || 8000;
